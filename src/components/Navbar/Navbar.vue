@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-app-bar color="red" dark app>
+    <v-app-bar dark app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase">
         <span class="font-weight-light">Bhoj</span>
