@@ -40,12 +40,8 @@ export default {
    password:'',
    adminSnackbar:false,
    snackbarText:'',
-   userNameRules: [
-        v => !!v || 'UserName is required',
-      ],
-     passwordRules: [
-        v => !!v || 'Password is required',
-      ],
+   userNameRules: [v => !!v || 'UserName is required'],
+   passwordRules: [v => !!v || 'Password is required'],
   }),
   methods: {
     loginAdmin() {

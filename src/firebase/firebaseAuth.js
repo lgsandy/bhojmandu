@@ -1,4 +1,3 @@
-
 import * as Firebase from "firebase";
 import "firebase/firestore";
 let config = {
