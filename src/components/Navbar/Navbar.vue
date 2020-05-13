@@ -23,16 +23,46 @@
             active-class="border"
             link
           >
+            <v-list-item-action>
+              <v-icon>{{link.icon}}</v-icon>
+            </v-list-item-action>
             <v-list-item-title>{{link.text}}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
-      <router-link to="/admin">
+      <v-menu offset-y>
+        <template v-slot:activator="{ on }">
+          <v-icon v-on="on">mdi-dots-vertical</v-icon>
+        </template>
+        <v-list flat>
+          <v-list-item
+            v-for="link in adminLink"
+            :key="link.text"
+            router
+            :to="link.route"
+            active-class="border"
+            link
+          >
+            <v-list-item-action>
+              <v-icon>{{link.icon}}</v-icon>
+            </v-list-item-action>
+            <v-list-item-title>{{link.text}}</v-list-item-title>
+          </v-list-item>
+          <v-list-item active-class="border" link>
+            <v-list-item-action>
+              <v-icon>exit_to_app</v-icon>
+            </v-list-item-action>
+            <v-list-item-title @click="logoutDialog = true">Logout</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+
+      <!-- <router-link to="/admin">
         <v-btn text @click="logout">
           <span>Exit</span>
           <v-icon right>exit_to_app</v-icon>
         </v-btn>
-      </router-link>
+      </router-link>-->
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" dark app class="red darken-4" :mini-variant.sync="mini">
       <!-- <v-layout column align-center>
@@ -80,20 +110,20 @@
   </nav>
 </template>
 <script>
-// import Popup from "./Popup.vue";
 export default {
   data: () => ({
     drawer: true,
     links: [{ icon: "dashboard", text: "Dashboard", route: "/adminDasboard" }],
+    adminLink: [{ icon: "person_outline", text: "Profile", route: "" }],
     mini: true
   }),
   components: {
     // Popup
   },
-  methods:{
-     logout(){
-        localStorage.removeItem('adminData');
-     }
+  methods: {
+    logout() {
+      localStorage.removeItem("adminData");
+    }
   }
 };
 </script>

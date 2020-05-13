@@ -37,6 +37,14 @@ const routes = [
     },
     component: () => import("../components/admin/AdminDashboard.vue"),
   },
+  {
+    path: "/driverDetails",
+    name: "DriverDetails",
+    meta: {
+      requiresAuth: true,
+    },
+    component: () => import("../components/driver/DriverDetails.vue"),
+  },
 ];
 
 const router = new VueRouter({
