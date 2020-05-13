@@ -1,8 +1,8 @@
 <template>
   <nav>
-    <v-app-bar dark app>
+    <v-app-bar dark color="#F05A00" app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title class="text-uppercase">
+      <v-toolbar-title class="text-uppercase" style="color:white">
         <span class="font-weight-light">Bhoj</span>
         <span>mandu</span>
       </v-toolbar-title>
@@ -27,8 +27,8 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <router-link to="/">
-        <v-btn text>
+      <router-link to="/admin">
+        <v-btn text @click="logout">
           <span>Exit</span>
           <v-icon right>exit_to_app</v-icon>
         </v-btn>
@@ -89,6 +89,11 @@ export default {
   }),
   components: {
     // Popup
+  },
+  methods:{
+     logout(){
+        localStorage.removeItem('adminData');
+     }
   }
 };
 </script>
