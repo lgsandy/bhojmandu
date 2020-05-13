@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <div v-if="getRouteName=='AdminDashboard'">
+    <div v-if="getRouteName=='AdminDashboard' || getRouteName=='DriverDetails'">
       <Navbar />
     </div>
     <v-content class="ma-0">

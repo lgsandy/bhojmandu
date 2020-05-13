@@ -17,12 +17,12 @@
                   <v-divider></v-divider>
                 </div>
               </v-list-item-content>
-             </v-list-item>
+            </v-list-item>
             <v-card-actions>
               <v-spacer></v-spacer>
               <div style="font-size:25px">523614</div>
-                 <v-spacer></v-spacer>
-              </v-card-actions>
+              <v-spacer></v-spacer>
+            </v-card-actions>
           </v-card>
         </v-flex>
         <v-flex sm6 xs12 md6 lg3>
@@ -42,9 +42,9 @@
               </v-list-item-content>
             </v-list-item>
             <v-card-actions>
-                <v-spacer></v-spacer>
-                <div style="font-size:25px">700</div>
-                 <v-spacer></v-spacer>
+              <v-spacer></v-spacer>
+              <div style="font-size:25px">700</div>
+              <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -67,7 +67,7 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <div style="font-size:25px">34,245</div>
-                 <v-spacer></v-spacer>
+              <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -88,9 +88,9 @@
               </v-list-item-content>
             </v-list-item>
             <v-card-actions>
-             <v-spacer></v-spacer>
+              <v-spacer></v-spacer>
               <div style="font-size:25px">1730</div>
-                 <v-spacer></v-spacer>
+              <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -114,27 +114,19 @@
         </v-flex>
       </v-layout>
 
-     <!-- Dialogue For Add Driver -->
+      <!-- Dialogue For Add Driver -->
 
       <v-dialog v-model="driverDialog" width="500">
-      <v-card>
-        <v-card-title class=" grey lighten-2" primary-title>
-          Add Driver
-        </v-card-title>
-        <v-card-text>
-          Lorem ipsum dolor sit amet, 
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="primary" text @click="driverDialog = false">
-            Add
-          </v-btn>
+        <v-card>
+          <v-card-title class="grey lighten-2" primary-title>Add Driver</v-card-title>
+          <v-card-text>Lorem ipsum dolor sit amet,</v-card-text>
+          <v-card-actions>
             <v-spacer></v-spacer>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-
-
+            <v-btn color="primary" text @click="driverDialog = false">Add</v-btn>
+            <v-spacer></v-spacer>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-container>
   </div>
 </template>
@@ -146,7 +138,7 @@ export default {
   name: "team",
   components: {},
   data: () => ({
-    driverDialog:false,
+    driverDialog: false,
     team: [
       { name: "All Resturents", role: "allResturent", avatar: "/img1.png" },
       { name: "All Drivers", role: "allDriver", avatar: "/img2.png" },
@@ -154,14 +146,13 @@ export default {
       { name: "Add Driver", role: "addDriver", avatar: "/img4.png" }
     ]
   }),
-  methods:{
-    updateData(list){
-      if(list.role == "addDriver"){
-        this.driverDialog=true;
-      }else if(list.role == "addResturent"){
-       console.log("resturent Add here");
+  methods: {
+    updateData(list) {
+      if (list.role == "addDriver") {
+        this.$router.push("/driverDetails");
+      } else if (list.role == "addResturent") {
+        console.log("resturent Add here");
       }
-   
     }
   }
 };
