@@ -10,41 +10,41 @@ const routes = [
     name: "Home",
     component: Home,
     meta: {
-      requiresGuest: true,
-    },
+      requiresGuest: true
+    }
   },
   {
     path: "/about",
     name: "About",
     component: () => import("../views/About.vue"),
     meta: {
-      requiresGuest: true,
-    },
+      requiresGuest: true
+    }
   },
   {
     path: "/admin",
     name: "Admin",
     component: () => import("../components/admin/AdminLogin.vue"),
     meta: {
-      requiresGuest: true,
-    },
+      requiresGuest: true
+    }
   },
   {
     path: "/adminDasboard",
     name: "AdminDashboard",
     meta: {
-      requiresAuth: true,
+      requiresAuth: true
     },
-    component: () => import("../components/admin/AdminDashboard.vue"),
+    component: () => import("../components/admin/AdminDashboard.vue")
   },
   {
     path: "/driverDetails",
     name: "DriverDetails",
     meta: {
-      requiresAuth: true,
+      requiresAuth: true
     },
-    component: () => import("../components/driver/DriverDetails.vue"),
-  },
+    component: () => import("../components/driver/DriverDetails.vue")
+  }
 ];
 
 const router = new VueRouter({
