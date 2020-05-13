@@ -1,6 +1,5 @@
 <template>
   <div class="team">
-    <h1 class="subheading grey--text">Dashboard</h1>
     <v-container>
       <v-layout row wrap>
         <v-flex sm6 xs12 md6 lg3>
@@ -12,7 +11,7 @@
                 </v-sheet>
               </v-list-item-avatar>
               <v-list-item-content>
-                <div class="overline text-right">Article</div>
+                <div class="overline text-right">Order Received</div>
                 <v-list-item-title class="headline mb-1 text-right">523614</v-list-item-title>
                 <div>
                   <v-divider></v-divider>
@@ -20,8 +19,9 @@
               </v-list-item-content>
             </v-list-item>
             <v-card-actions>
-              <v-icon text class="ma-2">person</v-icon>
-              <div class="overline">Iyad</div>
+              <v-spacer></v-spacer>
+              <div style="font-size:25px">523614</div>
+              <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -34,7 +34,7 @@
                 </v-sheet>
               </v-list-item-avatar>
               <v-list-item-content>
-                <div class="overline text-right">Abonné</div>
+                <div class="overline text-right">Order Delivered</div>
                 <v-list-item-title class="headline mb-1 text-right">+700</v-list-item-title>
                 <div>
                   <v-divider></v-divider>
@@ -42,8 +42,9 @@
               </v-list-item-content>
             </v-list-item>
             <v-card-actions>
-              <v-icon text class="ma-2">subscriptions</v-icon>
-              <div class="overline">AAE IdeaPro</div>
+              <v-spacer></v-spacer>
+              <div style="font-size:25px">700</div>
+              <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -56,16 +57,17 @@
                 </v-sheet>
               </v-list-item-avatar>
               <v-list-item-content>
-                <div class="overline text-right">Shopping</div>
-                <v-list-item-title class="headline mb-1 text-right">$34,245</v-list-item-title>
+                <div class="overline text-right">Today Earnings</div>
+                <v-list-item-title class="headline mb-1 text-right">34,245</v-list-item-title>
                 <div>
                   <v-divider></v-divider>
                 </div>
               </v-list-item-content>
             </v-list-item>
             <v-card-actions>
-              <v-icon text class="ma-2">credit_card</v-icon>
-              <div class="overline">VISA Card</div>
+              <v-spacer></v-spacer>
+              <div style="font-size:25px">34,245</div>
+              <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -78,7 +80,7 @@
                 </v-sheet>
               </v-list-item-avatar>
               <v-list-item-content>
-                <div class="overline text-right">Folder shared</div>
+                <div class="overline text-right">Monthy Earnings</div>
                 <v-list-item-title class="headline mb-1 text-right">1730</v-list-item-title>
                 <div>
                   <v-divider></v-divider>
@@ -86,31 +88,45 @@
               </v-list-item-content>
             </v-list-item>
             <v-card-actions>
-              <v-icon text class="ma-2">folder</v-icon>
-              <div class="overline">Prodect</div>
+              <v-spacer></v-spacer>
+              <div style="font-size:25px">1730</div>
+              <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
         </v-flex>
-        <v-flex xs12 sm6 md4 lg3 v-for="person in team" :key="person.name">
+        <v-flex xs12 sm6 md4 lg3 v-for="list in team" :key="list.name">
           <v-card class="text-center ma-3">
             <v-responsive class="pt-4">
               <v-avatar size="100" class="red lighten-2">
-                <img :src="person.avatar" alt />
+                <img :src="list.avatar" alt />
               </v-avatar>
             </v-responsive>
             <v-card-text>
-              <div class="subheading">{{person.name}}</div>
-              <div class="grey--text">{{person.role}}</div>
+              <div class="subheading">{{list.name}}</div>
+              <div class="grey--text">{{list.role}}</div>
             </v-card-text>
-            <v-card-actions>
-              <v-btn outlined color="orange">
-                <v-icon small left>message</v-icon>
-                <span>Message</span>
+            <v-card-actions class="justify-center">
+              <v-btn outlined color="orange" @click="updateData(list)">
+                <span>{{list.name}}</span>
               </v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
       </v-layout>
+
+      <!-- Dialogue For Add Driver -->
+
+      <v-dialog v-model="driverDialog" width="500">
+        <v-card>
+          <v-card-title class="grey lighten-2" primary-title>Add Driver</v-card-title>
+          <v-card-text>Lorem ipsum dolor sit amet,</v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="primary" text @click="driverDialog = false">Add</v-btn>
+            <v-spacer></v-spacer>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-container>
   </div>
 </template>
@@ -122,12 +138,22 @@ export default {
   name: "team",
   components: {},
   data: () => ({
+    driverDialog: false,
     team: [
-      { name: "Iyad", role: "web developer", avatar: "/img1.png" },
-      { name: "Reda", role: "Graphic designer", avatar: "/img2.png" },
-      { name: "Zineb", role: "web developer", avatar: "/img3.png" },
-      { name: "Hu TechGroup", role: "Desktop developer", avatar: "/img4.png" }
+      { name: "All Resturents", role: "allResturent", avatar: "/img1.png" },
+      { name: "All Drivers", role: "allDriver", avatar: "/img2.png" },
+      { name: "Add Resturent", role: "addResturent", avatar: "/img3.png" },
+      { name: "Add Driver", role: "addDriver", avatar: "/img4.png" }
     ]
-  })
+  }),
+  methods: {
+    updateData(list) {
+      if (list.role == "addDriver") {
+        this.$router.push("/driverDetails");
+      } else if (list.role == "addResturent") {
+        console.log("resturent Add here");
+      }
+    }
+  }
 };
 </script>
