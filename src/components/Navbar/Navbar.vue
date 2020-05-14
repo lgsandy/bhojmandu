@@ -52,7 +52,7 @@
             <v-list-item-action>
               <v-icon>exit_to_app</v-icon>
             </v-list-item-action>
-            <v-list-item-title @click="logoutDialog = true">Logout</v-list-item-title>
+            <v-list-item-title @click="logout">Logout</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -123,6 +123,7 @@ export default {
   methods: {
     logout() {
       localStorage.removeItem("adminData");
+      this.$router.push("/admin");
     }
   }
 };
