@@ -22,6 +22,22 @@ const routes = [
     }
   },
   {
+    path: "/form",
+    name: "Form",
+    component: () => import("../components/header/form.vue"),
+    meta: {
+      requiresGuest: true
+    }
+  },
+  {
+    path: "/my-order",
+    name: "Order",
+    component: () => import("../components/header/my-order.vue"),
+    meta: {
+      requiresGuest: true
+    }
+  },
+  {
     path: "/admin",
     name: "Admin",
     component: () => import("../components/admin/AdminLogin.vue"),
