@@ -113,20 +113,6 @@
           </v-card>
         </v-flex>
       </v-layout>
-
-      <!-- Dialogue For Add Driver -->
-
-      <v-dialog v-model="driverDialog" width="500">
-        <v-card>
-          <v-card-title class="grey lighten-2" primary-title>Add Driver</v-card-title>
-          <v-card-text>Lorem ipsum dolor sit amet,</v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="primary" text @click="driverDialog = false">Add</v-btn>
-            <v-spacer></v-spacer>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
     </v-container>
   </div>
 </template>
@@ -138,7 +124,6 @@ export default {
   name: "team",
   components: {},
   data: () => ({
-    driverDialog: false,
     team: [
       { name: "All Resturents", role: "allResturent", avatar: "/img1.png" },
       { name: "All Drivers", role: "allDriver", avatar: "/img2.png" },
