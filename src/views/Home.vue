@@ -65,8 +65,8 @@
         <v-card
           :color="active ? 'primary' : 'grey lighten-1'"
           class="ma-4"
-          height="200"
-          width="100"
+          height="250"
+          width="210"
           @click="toggle"
         >
           <v-row
