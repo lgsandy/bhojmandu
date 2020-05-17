@@ -4,7 +4,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase" style="color:white">
         <span class="font-weight-light">Bhoj</span>
-        <span>mandu</span>
+        <span>Mandu</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-menu offset-y>

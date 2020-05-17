@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-footer color="deep-orange accent-3">
+    <v-footer color="deep-orange accent-3" dark>
       <v-container fluid>
         <v-row>
           <v-col cols="12" md="3">
@@ -28,7 +28,7 @@
           </v-col>
           <v-col cols="12" md="3">
             <v-btn depressed elevation="12">
-              <v-icon left>android</v-icon>PlayStore
+              <v-icon left>android</v-icon>Play Store
             </v-btn>
             <v-btn depressed elevation="12" class="ml-2">
               <v-icon left>stay_current_portrait</v-icon>App Store
