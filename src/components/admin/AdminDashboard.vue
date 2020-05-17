@@ -136,6 +136,7 @@ export default {
       if (list.role == "addDriver") {
         this.$router.push("/driverDetails");
       } else if (list.role == "addResturent") {
+         this.$router.push("/restaurantDetails");
         console.log("resturent Add here");
       }
     }
