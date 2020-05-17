@@ -60,6 +60,14 @@ const routes = [
       requiresAuth: true
     },
     component: () => import("../components/driver/DriverDetails.vue")
+  },
+  {
+    path: "/restaurantDetails",
+    name: "restaurantDetails",
+    meta: {
+      requiresAuth: true
+    },
+    component: () => import("../components/admin/restaurant/restaurantlist.vue")
   }
 ];
 

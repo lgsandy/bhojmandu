@@ -111,7 +111,8 @@ export default {
       v =>
         v == 0 ||
         (v && !isNaN(parseFloat(v)) && v.length >= 10 && v.length <= 10) ||
-        "Phone Number should be 10  digits"
+        "Phone Number should be 10  digits",
+        v => !!v || "Adress is required"
     ],
     driverEmail: [v => /^\w+@[a-zA-Z_ ]+?\.[a-zA-Z ]{2,3}$/.test(v)],
     headers: [
@@ -192,9 +193,11 @@ export default {
     },
     saveDriverData() {
       if (this.$refs.driverForm.validate()) {
-        console.log(this.editedItem);
         this.close();
-        let ref = db.collection("drivers").doc(this.editedItem.mobile);
+        if(this.editedIndex == -1){
+        this.editedItem.id=Math.random().toString(36).substring(5).toUpperCase();
+        }
+        let ref = db.collection("drivers").doc(this.editedItem.id);
         ref.set(this.editedItem).then(res => {
           console.log(res);
           this.resetValidation();
