@@ -215,9 +215,28 @@ export default {
      var user = result.user;
      let userObj={token:userToken,
                    user:user}
-     localStorage.userData=JSON.stringify(userObj); 
-      _this.dialog=false; 
-      _this.checkIsLogin();
+      console.log(userObj)  ;
+         let userDetails={
+         name:user.displayName,
+         email:user.email,
+         phoneNumber:user.phoneNumber
+       }   
+        let ref = db.collection("users").doc(user.uid);
+        ref.get().then((res) => {
+          localStorage.userData=JSON.stringify(userObj); 
+         _this.dialog=false; 
+        _this.checkIsLogin();
+           console.log("Get")
+       if(res && res.data() == undefined){
+        ref.set(userDetails).then(() => {
+         console.log('login');
+        }); 
+       }
+        });  
+        
+    
+ 
+     
   // ...
      }).catch(function(error) {
      console.log(db);
