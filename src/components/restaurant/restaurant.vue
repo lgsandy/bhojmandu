@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-container class="mt-10">
+    <v-container class="mt-2">
       <v-row class="center" justify="center">
-        <p class="display-2">Top Restaurants</p>
+        <p class="display-1">Top Restaurants</p>
       </v-row>
       <v-row class="center" justify="center">
         <p class="title">Browse by your choice Restaurants</p>
@@ -13,7 +13,7 @@
         <v-col cols="12" xs="12" sm="6" md="4" lg="3" xl="3" v-for="n in 8" :key="n">
           <v-card elevation="12" class="mx-auto" max-width="344" outlined>
             <v-list-item three-line>
-              <v-list-item-content>
+              <v-list-item-content class="text-center">
                 <v-img height="150" width="100%" src="../../assets/kfc.png"></v-img>
                 <v-list-item-title class="headline mb-1">Restaurant Name</v-list-item-title>
                 <v-list-item-subtitle

@@ -44,9 +44,9 @@
 
     <!-- End of Image with search Box -->
 
-    <v-container class="mt-10">
+    <v-container class="mt-2">
       <v-row class="center" justify="center">
-        <p class="display-2">Top Categories</p>
+        <p class="display-1">Top Categories</p>
       </v-row>
       <v-row class="center" justify="center">
         <p class="title">Browse by Categories</p>
@@ -65,7 +65,8 @@
           >
             <v-row class="fill-height" align="center" justify="center">
               <v-scale-transition>
-                <v-icon v-if="active" color="white" size="80" v-text="'mdi-close-circle-outline'"></v-icon>
+         
+                <v-img height="150" width="100%" src="../assets/kfc.png"></v-img>
               </v-scale-transition>
             </v-row>
           </v-card>

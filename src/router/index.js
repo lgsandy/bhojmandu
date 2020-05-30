@@ -30,6 +30,14 @@ const routes = [
     }
   },
   {
+    path: "/addrestaurant",
+    name: "addrestaurant",
+    meta: {
+      requiresGuest: true
+    },
+    component: () => import("../components/restaurant/addrestaurant.vue")
+  },
+  {
     path: "/my-order",
     name: "Order",
     component: () => import("../components/header/my-order.vue"),

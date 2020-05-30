@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-footer color="deep-orange accent-3">
+    <v-footer color="deep-orange accent-3" dark>
       <v-container fluid>
         <v-row>
           <v-col cols="12" md="3">
